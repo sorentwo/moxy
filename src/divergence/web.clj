@@ -1,11 +1,13 @@
 (ns divergence.web
-  (:use ring.adapter.jetty))
+  (:use me.shenfeng.http.server))
 
-(defn app [req]
+(defn app [request]
   {:status 200
-   :headers {"Content/Type" "text/plain"}
-   :body "divergence\n"})
+   :headers {"Content-Type" "text/html"}
+   :body "What the wakka"})
 
 (defn -main []
   (let [port (Integer/parseInt (System/getenv "PORT"))]
-    (run-jetty app {:port port})))
+    (run-server app {:port port
+                     :thread 4
+                     :queue-size 20480})))
