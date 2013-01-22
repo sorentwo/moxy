@@ -9,14 +9,9 @@ through to individual servers and proxy the response.
 
 ## Cascading Rule System
 
-```
--> request
-  -> resolvers
-    -> static
-    -> focused
-    -> fanout
-  <- response
-```
+1. Process request
+2. Attempt matching against all rule types
+3. Process response
 
 ### Static
 
