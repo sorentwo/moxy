@@ -16,11 +16,12 @@
            (extract-fingerprint {:headers {}})))))
 
 (testing "expand"
-  (def request {:headers { "Authorization" "token abcdefg123456" }})
   (def mapping { "abcdefg123456" "https://example.com" })
+  (def request {:uri "/api/missions"
+                :headers { "Authorization" "token abcdefg123456" }})
 
   (deftest expand-known-fingerprint
-    (is (= "https://example.com" (expand request mapping))))
+    (is (= "https://example.com/api/missions" (expand request mapping))))
 
-  (deftest does-not-expand-unknown-fingerprint)
-    (is (empty? (expand {:headers {}} mapping))))
+  (deftest does-not-expand-unknown-fingerprint
+    (is (empty? (expand {:headers {}} mapping)))))

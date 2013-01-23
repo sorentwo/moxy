@@ -4,7 +4,7 @@
 (defn app [request]
   {:status 200
    :headers {"Content-Type" "text/html"}
-   :body "What the wakka"})
+   :body (str request)})
 
 (defn -main []
   (let [port (Integer/parseInt (System/getenv "PORT"))]

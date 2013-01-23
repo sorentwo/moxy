@@ -22,7 +22,7 @@ route to resolve the server must be taught about the `server/route` tuple, where
 
 ```clojure
 ["https://dscoutapp.com/api/content/guides"
-"https://dscoutapp.com/api/terms"]
+ "https://dscoutapp.com/api/terms"]
 ```
 
 ### Fingerprinted
@@ -51,13 +51,14 @@ something like this:
 
 1. A request is made `https://api.dscoutapp.com/sessions`.
 2. The request is determined not to be static or focused, defaulting to fanout.
-3. The fanout simultaneously performs requests to all registered servers.
-4. If there are any successful response the first response is selected and
+3. Fanout returns a set of all known servers combined with the uri.
+4. The fanout simultaneously performs requests to all registered servers.
+5. If there are any successful response the first response is selected and
    forwarded back to the requester.
-5. Fingerprinting rules are applied to the response, mapping back to the server
+6. Fingerprinting rules are applied to the response, mapping back to the server
    if possible.
 
-Because we expect servers to have exclusive rights to any scouts fanout is only
+Because we expect servers to have exclusive rights to any user, fanout is only
 designed to return a single response. No contatenation of responses will occur.
 
 ### Teaching

@@ -11,11 +11,11 @@
   (deftest does-not-match-known-route
     (is (not (known-route? "api/random" (first known-routes))))))
 
-(testing "expand-routes"
+(testing "expand"
   (deftest expands-known-route
     (is (=
-          (first (expand-routes "api/terms" known-routes))
+          (first (expand {:uri "api/terms"} known-routes))
           "http://example.com/api/terms")))
 
   (deftest ignores-unknown-route
-     (is (empty? (expand-routes "api/unknown" known-routes)))))
+     (is (empty? (expand {:uri "api/unknown"} known-routes)))))
