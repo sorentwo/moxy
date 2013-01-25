@@ -1,5 +1,4 @@
 (ns divergence.fanout)
 
-(defn expand [request servers]
-  (let [uri (get request :uri)]
-    (map #(str % uri) servers)))
+(defn expand [{uri :uri} servers]
+  (map #(str % uri) servers))
