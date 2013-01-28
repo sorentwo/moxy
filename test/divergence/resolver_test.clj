@@ -2,28 +2,30 @@
   (:use clojure.test
         divergence.resolver))
 
-(testing "resolve-urls"
-  (deftest resolve-static-url
+(testing "expand"
+  (deftest expand-static-url
     (let [request  {:uri "/terms"}
           mappings {:static ["http://example.com/terms"]}]
-    (is (= '("http://example.com/terms") (resolve-urls request mappings)))))
+    (is (= '("http://example.com/terms") (expand request mappings)))))
 
-  (deftest resolve-fingerprinted-url
+  (deftest expand-fingerprinted-url
     (let [request {:uri     "/api/missions"
                    :headers { "Authorization" "token abcdefg123456" }}
           mapping {:static  []
                    :finger  { "abcdefg123456" "http://example.com" }}]
-    (is (= '("http://example.com/api/missions") (resolve-urls request mapping)))))
+    (is (= '("http://example.com/api/missions") (expand request mapping)))))
 
-  (deftest resolve-fanout-url
+  (deftest expand-fanout-url
     (let [request {:uri     "/api/missions" :headers {}}
           mapping {:static  []
                    :finger  {}
                    :fanout  ["http://acme.example.com" "http://corp.example.com"]}]
     (is (= '("http://acme.example.com/api/missions"
-             "http://corp.example.com/api/missions") (resolve-urls request mapping)))))
+             "http://corp.example.com/api/missions") (expand request mapping)))))
 
-  (deftest resolve-no-urls
+  (deftest expand-no-urls
     (let [request {:uri "/api/missions" :headers {}}
           mapping {:static [] :finger {} :fanout []}]
-      (is (= '() (resolve-urls request mapping))))))
+      (is (= '() (expand request mapping))))))
+
+(testing "realize")
