@@ -1,4 +1,4 @@
-(ns divergence.fingerprint)
+(ns moxy.fingerprint)
 
 (defn find-server [fingerprint mapping]
   (get mapping fingerprint nil))

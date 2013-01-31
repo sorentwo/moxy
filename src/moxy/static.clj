@@ -1,4 +1,4 @@
-(ns divergence.static)
+(ns moxy.static)
 
 (defn known-route? [path url]
   (re-find (re-pattern path) url))

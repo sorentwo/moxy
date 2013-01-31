@@ -1,4 +1,4 @@
-# divergence
+# moxy
 
 Internal API traffic routing.
 
@@ -67,7 +67,7 @@ Routing rules are backed by Redis, so they persist between deployments. You
 teach the app about available servers and routes is via the REPL.
 
 ```clojure
-(use 'divergence.routes)
+(use 'moxy.routes)
 
 ; Add a static route
 (add-static "https://dscoutapp.com" "api/content/guides")

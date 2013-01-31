@@ -1,4 +1,4 @@
-(ns divergence.uri
+(ns moxy.uri
   (:import (java.net URI)))
 
 (defn host   [uri] (.getHost (URI. uri)))

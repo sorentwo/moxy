@@ -1,6 +1,6 @@
-(ns divergence.uri-test
+(ns moxy.uri-test
   (:use clojure.test
-        divergence.uri))
+        moxy.uri))
 
 (testing "path"
   (deftest extracts-path

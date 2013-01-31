@@ -1,6 +1,6 @@
-(ns divergence.fanout-test
+(ns moxy.fanout-test
   (:use clojure.test
-        divergence.fanout))
+        moxy.fanout))
 
 (testing "expand"
   (def request {:uri "/api/missions"})

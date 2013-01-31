@@ -1,7 +1,7 @@
-(ns divergence.web
+(ns moxy.web
   (:use me.shenfeng.http.server
         clojure.walk
-        [divergence.resolver :as resolver]))
+        [moxy.resolver :as resolver]))
 
 ; we need an interface for getting/setting term
 (def mappings {:static #{"http://localhost:3001/terms"}

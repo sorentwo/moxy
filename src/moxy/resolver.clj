@@ -1,5 +1,5 @@
-(ns divergence.resolver
-  (:require (divergence [static :as static]
+(ns moxy.resolver
+  (:require (moxy [static :as static]
                         [fingerprint :as finger]
                         [fanout :as fanout]))
   (:require [me.shenfeng.http.client :as http]))

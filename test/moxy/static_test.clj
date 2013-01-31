@@ -1,6 +1,6 @@
-(ns divergence.static-test
+(ns moxy.static-test
   (:use clojure.test
-        divergence.static))
+        moxy.static))
 
 (def known-routes ["http://example.com/api/terms"])
 

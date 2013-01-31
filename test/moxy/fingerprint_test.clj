@@ -1,6 +1,6 @@
-(ns divergence.fingerprint-test
+(ns moxy.fingerprint-test
   (:use clojure.test
-        divergence.fingerprint))
+        moxy.fingerprint))
 
 (testing "extract-fingerprint"
   (deftest resolves-fingerpring-from-request

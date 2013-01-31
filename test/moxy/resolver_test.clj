@@ -1,6 +1,6 @@
-(ns divergence.resolver-test
+(ns moxy.resolver-test
   (:use clojure.test
-        divergence.resolver))
+        moxy.resolver))
 
 (testing "expand"
   (deftest expand-static-url
