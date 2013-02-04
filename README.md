@@ -21,8 +21,8 @@ route to resolve the server must be taught about the `server/route` tuple, where
 `server` is a fully qualified url and `route` is a simple relative glob.
 
 ```clojure
-["https://dscoutapp.com/api/content/guides"
- "https://dscoutapp.com/api/terms"]
+["https://example.com/api/content/guides"
+ "https://example.com/api/terms"]
 ```
 
 ### Fingerprinted
@@ -49,7 +49,7 @@ Fanout is the default behavior when a request is determined not to be
 statically routable or focused. A sample fanout request/response cycle would be
 something like this:
 
-1. A request is made `https://api.dscoutapp.com/sessions`.
+1. A request is made `https://api.example.com/sessions`.
 2. The request is determined not to be static or focused, defaulting to fanout.
 3. Fanout returns a set of all known servers combined with the uri.
 4. The fanout simultaneously performs requests to all registered servers.
@@ -70,13 +70,13 @@ teach the app about available servers and routes is via the REPL.
 (use 'moxy.routes)
 
 ; Add a static route
-(add-static "https://dscoutapp.com" "api/content/guides")
+(add-static "https://example.com" "api/content/guides")
 
 ; Add a fingerprint extraction rule
 (add-fingerprint "Authorization" "token (\w+)")
 
 ; Add a server for fanout
-(add-fanout "https://motorola.dscoutapp.com")
+(add-fanout "https://acme.example.com")
 ```
 
 ## Local Deploy
